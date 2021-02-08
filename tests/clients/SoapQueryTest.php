@@ -6,12 +6,12 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\clients;
+namespace poseidon\vatvalidation\clients;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\message\Response;
-use src\validateVat\message\Request;
-use tests\unit\validateVat\mocks\SoapQueryMock;
+use poseidon\vatvalidation\message\Response;
+use poseidon\vatvalidation\message\Request;
+use poseidon\vatvalidation\mocks\SoapQueryMock;
 use \stdClass;
 
 class SoapQueryTest extends TestCase

@@ -6,11 +6,11 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\validate;
+namespace poseidon\vatvalidation\validate;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\message\Request;
-use src\validateVat\validate\VatNumberFormat;
+use poseidon\vatvalidation\message\Request;
+use poseidon\vatvalidation\validate\VatNumberFormat;
 
 class VatNumberFormatTest extends TestCase
 {

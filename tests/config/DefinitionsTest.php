@@ -6,10 +6,9 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\config\validateVat;
+namespace poseidon\vatvalidation\config;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\config\Definitions;
 
 class DefinitionsTest extends TestCase
 {

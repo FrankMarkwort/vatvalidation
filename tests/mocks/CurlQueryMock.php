@@ -6,9 +6,9 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\mocks;
+namespace poseidon\vatvalidation\mocks;
 
-use src\validateVat\clients\CurlQuery;
+use poseidon\vatvalidation\clients\CurlQuery;
 
 class CurlQueryMock extends CurlQuery
 {

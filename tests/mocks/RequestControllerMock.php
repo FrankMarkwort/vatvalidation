@@ -6,10 +6,10 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\mocks;
+namespace poseidon\vatvalidation\mocks;
 
-use src\validateVat\clients\QueryInterface;
-use src\validateVat\RequestController;
+use poseidon\vatvalidation\clients\QueryInterface;
+use poseidon\vatvalidation\RequestController;
 
 class RequestControllerMock extends RequestController
 {

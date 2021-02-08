@@ -6,13 +6,13 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\clients;
+namespace poseidon\vatvalidation\clients;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\message\Request;
-use src\validateVat\message\Response;
-use tests\unit\validateVat\mocks\CurlQueryMock;
-use src\validateVat\config\Definitions;
+use poseidon\vatvalidation\message\Request;
+use poseidon\vatvalidation\message\Response;
+use poseidon\vatvalidation\mocks\CurlQueryMock;
+use poseidon\vatvalidation\config\Definitions;
 
 
 class CurlQueryTest extends TestCase

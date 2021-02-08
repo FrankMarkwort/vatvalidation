@@ -8,7 +8,6 @@
  */
 namespace poseidon\vatvalidation\clients;
 
-use poseidon\vatvalidation\clients\QueryInterface;
 use poseidon\vatvalidation\exceptions\ValidateVatException;
 use poseidon\vatvalidation\config\Definitions;
 use poseidon\vatvalidation\message\ResponseInterface;

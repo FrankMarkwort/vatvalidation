@@ -6,11 +6,11 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat\mocks;
+namespace poseidon\vatvalidation\mocks;
 
-use src\validateVat\clients\SoapQuery;
-use src\validateVat\exceptions\ValidateVatException;
-use src\validateVat\config\Definitions;
+use poseidon\vatvalidation\clients\SoapQuery;
+use poseidon\vatvalidation\exceptions\ValidateVatException;
+use poseidon\vatvalidation\config\Definitions;
 
 class SoapQueryMock extends SoapQuery
 {

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../../src/vat_validation_frank.php';
+require_once __DIR__ . '/../../src/vat_validation_frank.php';
 
 class vat_validation_mock extends vat_validation_frank
 {

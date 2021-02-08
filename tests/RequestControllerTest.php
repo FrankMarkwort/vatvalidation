@@ -6,16 +6,16 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\validateVat;
+namespace poseidon\vatvalidation;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\message\Response;
-use src\validateVat\message\Request;
-use src\validateVat\clients\CurlQuery;
-use src\validateVat\clients\SoapQuery;
+use poseidon\vatvalidation\message\Response;
+use poseidon\vatvalidation\message\Request;
+use poseidon\vatvalidation\clients\CurlQuery;
+use poseidon\vatvalidation\clients\SoapQuery;
 use \stdClass;
-use src\validateVat\validate\VatNumberFormat;
-use tests\unit\validateVat\mocks\RequestControllerMock;
+use poseidon\vatvalidation\validate\VatNumberFormat;
+use poseidon\vatvalidation\mocks\RequestControllerMock;
 
 class RequestControllerTest extends TestCase
 {

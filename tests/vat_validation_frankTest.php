@@ -8,14 +8,14 @@ declare(strict_types=1);
  *
  */
 require_once __DIR__ . '/defineConstants.php';
-require_once __DIR__ . '/../../tests/unit/mockClass/vat_validation_mock.php';
+require_once __DIR__ . '/mockClass/vat_validation_mock.php';
       
 use PHPUnit\Framework\TestCase;
-use tests\unit\NameInterface;
-use src\validateVat\message\Request;
-use src\validateVat\message\ResponseSerializable;
-use tests\unit\validateVat\mocks\RequestControllerMock;
-use src\validateVat\RequestController;
+use poseidon\vatvalidation\message\Request;
+use poseidon\vatvalidation\message\ResponseSerializable;
+use poseidon\vatvalidation\mocks\RequestControllerMock;
+use poseidon\vatvalidation\RequestController;
+use poseidon\vatvalidation\NameInterface;
 
 class vat_validation_frankTest extends TestCase implements NameInterface
 {

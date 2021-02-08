@@ -1,5 +1,5 @@
 <?php
-namespace tests\unit;
+namespace poseidon\vatvalidation;
 
 interface NameInterface
 {

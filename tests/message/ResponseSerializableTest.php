@@ -6,11 +6,9 @@
  * @copyright Frank Markwort
  *
  */
-namespace tests\unit\message\validateVat;
+namespace poseidon\vatvalidation\message;
 
 use PHPUnit\Framework\TestCase;
-use src\validateVat\message\ResponseSerializable;
-use src\validateVat\message\ResponseInterface;
 
 class ResponseSerializableTest extends TestCase
 {
