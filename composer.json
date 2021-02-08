@@ -1,0 +1,19 @@
+{
+	"name" : "poseidon/vatvalidation",
+	"description" : "Vat validation",
+	"type" : "library",
+	"authors" : [{
+			"name" : "Frank Markwort",
+			"email" : "frank.markwort@gmail.com",
+			"role" : "lead"
+		}
+	],
+	"license" : "private",
+	"autoload" : {
+		"psr-4" : {
+			"poseidon\\vatvalidation" : [
+					"vendor/poseidon/vatvalidation/src"
+			]
+		}
+	}
+}

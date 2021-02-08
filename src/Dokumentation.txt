@@ -1,0 +1,304 @@
+/*
+Antwort - Aufbau
+
+Als Rückgabe wird ein Hash mit folgenden Parametern ausgegeben:
+
+Datum
+    Das Datum der Anfrage (Format: tt.mm.jjjj).
+Uhrzeit
+    Uhrzeit der Anfrage (Format: hh:mm:ss).
+ErrorCode
+    Fehlernummer der Anfrage ( Übersicht der ErrorCodes).
+UstId_1
+    Ihre deutsche USt-IdNr.
+UstId_2
+    Angefragte ausländische USt-IdNr.
+Firmenname
+    Der von Ihnen angefragte Firmenname
+Ort
+    Der von Ihnen angefragte Ort der Firma
+PLZ
+    Die von Ihnen angefragte Postleitzahl der Firma
+Strasse
+    Die von Ihnen angefragte Strasse der Firma
+
+Werte für die Parameter Erg_Name, Erg_Ort, Erg_PLZ und Erg_Str
+    Folgende Werte sind als Ergebnis möglich:
+
+        A = stimmt überein
+        B = stimmt nicht überein
+        C = nicht angefragt
+        D = vom EU-Mitgliedsstaat nicht mitgeteilt
+
+
+Erg_Name
+    Ergebnis für den angefragten Namen der Firma
+Erg_Ort
+    Ergebnis für den angefragten Ort der Firma
+Erg_PLZ
+    Ergebnis für die angefragte Postleitzahl der Firma
+Erg_Str
+    Ergebnis für die angefragte Strasse der Firma
+
+Gueltig_ab
+    Wird nur beim ErrorCode 203 bzw. 204 angegeben.
+    Beginn der Gütigkeit der ausländischen USt-IdNr (Format: tt.mm.jjjj).
+Gueltig_bis
+    Wird nur beim ErrorCode 204 angegeben.
+    Ende der Gütigkeit der ausländischen USt-IdNr (Format: tt.mm.jjjj).
+Druck
+    Gibt an, ob Sie eine amtliche Bestätigungsmitteilung angefordert haben:
+
+        ja     = Mitteilung angefordert
+        nein = ohne Miteilung
+===================================================================================
+
+ErrorCode 	Beschreibung
+------------------------------------------------------------
+200 	    Die angefragte USt-IdNr. ist gültig.
+201 	    Die angefragte USt-IdNr. ist ungültig.
+202 	    Die angefragte USt-IdNr. ist ungültig. Sie ist nicht in der Unternehmerdatei des betreffenden EU-Mitgliedstaates registriert.
+            Hinweis:
+            Ihr Geschäftspartner kann seine gültige USt-IdNr. bei der für ihn zuständigen Finanzbehörde in Erfahrung bringen. Möglicherweise muss er einen Antrag stellen, damit seine USt-IdNr. in die Datenbank aufgenommen wird.
+203     	Die angefragte USt-IdNr. ist ungültig. Sie ist erst ab dem ... gültig (siehe Feld 'Gueltig_ab').
+204     	Die angefragte USt-IdNr. ist ungültig. Sie war im Zeitraum von ... bis ... gültig (siehe Feld 'Gueltig_ab' und 'Gueltig_bis').
+205     	Ihre Anfrage kann derzeit durch den angefragten EU-Mitgliedstaat oder aus anderen Gründen nicht beantwortet werden. Bitte versuchen Sie es später noch einmal.
+            Bei wiederholten Problemen wenden Sie sich bitte an das Bundeszentralamt für Steuern - Dienstsitz Saarlouis.
+206     	Ihre deutsche USt-IdNr. ist ungültig. Eine Bestätigungsanfrage ist daher nicht möglich. Den Grund hierfür können Sie beim Bundeszentralamt für Steuern - Dienstsitz Saarlouis - erfragen.
+207 	    Ihnen wurde die deutsche USt-IdNr. ausschliesslich zu Zwecken der Besteuerung des innergemeinschaftlichen Erwerbs erteilt. Sie sind somit nicht berechtigt, Bestätigungsanfragen zu stellen.
+208 	    Für die von Ihnen angefragte USt-IdNr. läuft gerade eine Anfrage von einem anderen Nutzer. Eine Bearbeitung ist daher nicht möglich. Bitte versuchen Sie es später noch einmal.
+209 	    Die angefragte USt-IdNr. ist ungültig. Sie entspricht nicht dem Aufbau der für diesen EU-Mitgliedstaat gilt. ( Aufbau der USt-IdNr. aller EU-Länder)
+210 	    Die angefragte USt-IdNr. ist ungültig. Sie entspricht nicht den Prüfziffernregeln die für diesen EU-Mitgliedstaat gelten.
+211 	    Die angefragte USt-IdNr. ist ungültig. Sie enthält unzulässige Zeichen (wie z.B. Leerzeichen oder Punkt oder Bindestrich usw.).
+212 	    Die angefragte USt-IdNr. ist ungültig. Sie enthält ein unzulässiges Länderkennzeichen.
+213 	    Die Abfrage einer deutschen USt-IdNr. ist nicht möglich.
+214 	    Ihre deutsche USt-IdNr. ist fehlerhaft. Sie beginnt mit 'DE' gefolgt von 9 Ziffern.
+215 	    Ihre Anfrage enthält nicht alle notwendigen Angaben für eine einfache Bestätigungsanfrage (Ihre deutsche USt-IdNr. und die ausl. USt-IdNr.).
+            Ihre Anfrage kann deshalb nicht bearbeitet werden.
+216 	    Ihre Anfrage enthält nicht alle notwendigen Angaben für eine qualifizierte Bestätigungsanfrage (Ihre deutsche USt-IdNr., die ausl. USt-IdNr., Firmenname einschl. Rechtsform und Ort).
+            Es wurde eine einfache Bestätigungsanfrage durchgeführt mit folgenden Ergebnis:
+            Die angefragte USt-IdNr. ist gültig.
+217 	    Bei der Verarbeitung der Daten aus dem angefragten EU-Mitgliedstaat ist ein Fehler aufgetreten. Ihre Anfrage kann deshalb nicht bearbeitet werden.
+218 	    Eine qualifizierte Bestätigung ist zur Zeit nicht möglich. Es wurde eine einfache Bestätigungsanfrage mit folgendem Ergebnis durchgeführt:
+            Die angefragte USt-IdNr. ist gültig.
+219 	    Bei der Durchführung der qualifizierten Bestätigungsanfrage ist ein Fehler aufgetreten. Es wurde eine einfache Bestätigungsanfrage mit folgendem Ergebnis durchgeführt:
+            Die angefragte USt-IdNr. ist gültig.
+220 	    Bei der Anforderung der amtlichen Bestätigungsmitteilung ist ein Fehler aufgetreten. Sie werden kein Schreiben erhalten.
+221 	    Die Anfragedaten enthalten nicht alle notwendigen Parameter oder einen ungültigen Datentyp. Weitere Informationen erhalten Sie bei den Hinweisen zum Schnittstelle - Aufruf.
+999 	    Eine Bearbeitung Ihrer Anfrage ist zurzeit nicht möglich. Bitte versuchen Sie es später noch einmal. 
+
+==============================================================================================================================
+
+Plausibilität:
+http://ec.europa.eu/taxation_customs/vies/faq.html#item_11
+---------------------------------------------------------------
+Mitgliedstaat 	            Struktur 	             Format*
+AT-Oesterreich 	            ATU99999999 	          1 Block mit 9 Ziffern
+BE-Belgien 	                BE0999999999 	         1 Block mit 10 Ziffern
+BG-Bulgarien 	            BG999999999 oder
+                            BG9999999999 	          1 Block mit 9 Ziffern oder 1 Block mit 10 Ziffern
+CY-Zypern 	                CY99999999L 	          1 Block mit 9 Ziffern
+CZ-Tschechische Republik 	CZ99999999 oder
+                            CZ999999999 oder
+                            CZ9999999999              1 Block mit 8, 9 oder 10 Ziffern
+DE-Deutschland 	            DE999999999 	          1 Block mit 9 Ziffern
+DK-Dänemark 	            DK99 99 99 99 	           4 Blöcke mit 2 Ziffern
+EE-Estland 	                EE999999999 	          1 Block mit 9 Ziffern
+EL-Griechenland 	        EL999999999 	          1 Block mit 9 Ziffern
+ES-Spanien 	                ESX9999999X4 	           1 Block mit 9 Ziffern
+FI-Finnland 	            FI99999999 	              1 Block mit 8 Ziffern
+FR-Frankreich 	            FRXX 999999999 	          1 Block mit 2 Ziffern und 1 Block mit 9 Ziffern
+GB-Vereinigtes Königreich 	GB999 9999 99 oder
+                            GB999 9999 99 9995 oder
+                            GBGD9996 oder
+                            GBHA9997 	                1 Block mit 3 Ziffern, 1 Block mit 4 Ziffern und 1 Block mit 2 Ziffern; oder wie oben, gefolgt von einem Block mit 3 Ziffern; oder 1 Block mit 5 Ziffern
+HR-Kroatien 	            HR99999999999 	            1 Block mit 11 Ziffern
+HU-Ungarn 	                HU99999999 	                1 Block mit 8 Ziffern
+IE-Irland 	                IE9S99999L
+                            IE9999999WI 	            1 Block mit 8 Ziffern oder 1 Block mit 9 Ziffern
+IT-Italien 	                IT99999999999 	            1 Block mit 11 Ziffern
+LT-Litauen 	                LT999999999 oder
+                            LT999999999999 	            1 Block mit 9 Ziffern oder 1 Block mit 12 Ziffern
+LU-Luxemburg 	            LU99999999              	1 Block mit 8 Ziffern
+LV-Lettland 	            LV99999999999            	1 Block mit 11 Ziffern
+MT-Malta 	                MT99999999              	1 Block mit 8 Ziffern
+NL-Niederlande 	            NL999999999B998          	1 Block mit 12 Ziffern
+PL-Polen 	                PL9999999999 	            1 Block mit 10 Ziffern
+PT-Portugal 	            PT999999999 	            1 Block mit 9 Ziffern
+RO-Rumänien 	            RO999999999             	1 Block mit mindestens 2 und höchstens 10 Ziffern
+SE-Schweden 	            SE999999999999          	1 Block mit 12 Ziffern
+SI-Slowenien 	            SI99999999 	                1 Block mit 8 Ziffern
+SK-Slowakei 	            SK9999999999 	            1 Block mit 10 Ziffern
+
+
+Anmerkungen:
+*: Zum Format gehört nicht das vorangestellte alphabetische Länderkennzeichen
+9: Eine Ziffer
+X: Ein Buchstabe oder eine Ziffer
+S: Ein Buchstabe; eine Ziffer; „+“ oder „*“
+L: Ein Buchstabe
+
+Hinweise:
+1: Die 1. Position nach dem Länderkennzeichen ist immer „U“.
+2: Die erste Ziffer nach dem Länderkennzeichen ist immer Null („0“).
+3: Das (neue) 10-Ziffern-Format entstand durch Anfügen einer Null an erster Stelle des (alten) 9-Ziffern-Formats.
+4: Das erste und das letzte Zeichen können ein Buchstabe oder eine Ziffer sein, allerdings können nicht beide Ziffern sein.
+5: Für Niederlassungen.
+6: Für Ministerien.
+7: Für Einrichtungen des Gesundheitswesens.
+8: Die 10. Stelle nach dem Länderkennzeichen ist immer „B“.
+9: Bei allen Buchstaben muss auf Groß- und Kleinschreibung geachtet werden. Bitte folgen Sie der Syntax der angezeigten MwSt-Nummer genau wie angegeben. 
+
+
+**************************************************
+* source: https://www.media-web.de/knowledgebase/joomla-und-erweiterungen/232-pr%C3%BCfung-der-ust-idnr-eu-vat-id-in-joomla-virtuemart-per-vies-server-soap.html
+*
+* =============================================================================
+
+-- find valid VAT-IDs for countries | Spain 194 ES, France 73 FR,
+   SELECT c.customers_id, 
+          c.customers_vat_id, 
+          c.customers_vat_id_status, 
+          ab.entry_company, 
+          ab.entry_firstname, 
+          ab.entry_lastname, 
+          ab.entry_postcode, 
+          ab.entry_city,
+          ab.entry_street_address
+     FROM customers c
+     JOIN address_book ab
+       ON ab.address_book_id = c.customers_default_address_id
+    WHERE c.customers_vat_id_status = 1
+      AND ab.entry_country_id = 171;
+
+* =============================================================================
+* Some examples: 
+    country Kroatia ID , Code: HR
+        customer: 171038, vatID: HR 20543250589, company: Ver d.o.o., street: Mate Lovraka 1, city: 10410 Velika Gorica
+    country: Spain ID: 194, Code: ES
+        customer: , vatID: , company: , street: , city: 
+    country: France ID: 73, Code: FR
+        customer: 486, vatID: FR 72483206587, company: sarl Planet car, street: 23 avenue de la defense passive, city: 80080 AMIENS
+        customer: 994, vatID: FR 10510919822, company: PROVENÇALE AUTOMOBILES S.A.R.L, street: 32 B Chemin de Vallon de TOULOUSE, city: 13009 Marseille
+    country: Portugal ID: 171, Code: PT
+        customer: 188721, vatID: PT 508110009, company: VELHOS TRUNFOS, LDA, street: ZONA INDUSTRIAL TABOEIRA, city: 3800-375 aveiro
+        customer: 187881, vatID: PT 510900690, company: SolAna Tour Lda., street: rua 3, lote 6, 2-A, Boavista, city: 8500-513 Portimao
+* 
+* © copyright above URL and noRiddle
+**************************************************/
+ 
+class vatLiveCheckApprox {
+    private $params;
+    private $result;
+    public $requ_url;
+
+    public function __construct($client_cc, $client_vatid, $requ_cc, $requ_vatid, $client_name = '', $client_street = ''){
+        ini_set('soap.wsdl_cache_enabled', false);
+        $this->requ_url = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl";
+
+        try {
+            $client = new SoapClient($this->requ_url);
+            $this->result = $client->checkVatApprox($this->getParams($client_cc, $client_vatid, $requ_cc, $requ_vatid, $client_name, $client_street));
+        }
+        catch (SoapFault $sf) {
+            $this->errors = $sf;
+        }
+        echo '<pre>GESENDET:<br />'.print_r($this->params, true).'</pre>'."\n";
+    }
+ 
+ 
+    private function getParams ($cl_cc, $cl_vatid, $re_cc, $re_vatid, $cl_name, $cl_street) {
+        $this->params = array('countryCode' => $cl_cc, 
+                              'vatNumber' => $cl_vatid,
+                              'requesterCountryCode' => $re_cc,
+                              'requesterVatNumber' => $re_vatid);
+                              
+        if($cl_name != '') 
+            $this->params['traderName'] = $cl_name;
+            
+        if($cl_street != '') 
+            $this->params['traderStreet'] = $cl_street;
+ 
+        return $this->params;
+    }
+ 
+    public function getResult () {
+        return $this->result;
+    }
+ 
+    public function getResultList () {
+        $r = $this->result;
+        //if ($r->valid == 1) {
+            $list = "<ul>";
+            foreach ($r as $k => $prop) {
+                $list .= '<li>'.$k.': '.($k == 'valid' ? ($prop == true ? '1' : '0') : $prop).'</li>';
+            }
+            $list .= "</ul>";
+        //}
+        return $list;
+    }
+ 
+    public function getValid (){
+        return ($this->result->valid == 1);
+    }
+ 
+    public function getErrors () {
+        return $this->errors;
+    }
+ 
+    public function getErrorString () {
+        return $this->errors->faultstring;
+    }
+}
+
+//================================================================================================
+
+$vat_requ_requ_cc = 'DE';
+$vat_requ_requ_vatid = '263721827';
+
+//Croatia
+//$vat_requ_cl_cc = 'HR';
+//$vat_requ_cl_vatid = '20543250589';
+//$vat_requ_cl_name = 'Ver d.o.o.';
+//$vat_requ_cl_street = 'Mate Lovraka 1';
+
+//France
+//$vat_requ_cl_cc = 'FR';
+//$vat_requ_cl_vatid = '72483206587';
+//$vat_requ_cl_name = 'sarl Planet car';
+//$vat_requ_cl_street = '23 avenue de la defense passive';
+
+$vat_requ_cl_cc = 'FR';
+$vat_requ_cl_vatid = '10510919822';
+$vat_requ_cl_name = 'PROVENÇALE AUTOMOBILES S.A.R.L';
+$vat_requ_cl_street = '32 B Chemin de Vallon de TOULOUSE';
+
+//Portugal
+//$vat_requ_cl_cc = 'PT';
+//$vat_requ_cl_vatid = '508110009';
+//$vat_requ_cl_name = 'VELHOS TRUNFOS, LDA';
+//$vat_requ_cl_street = 'ZONA INDUSTRIAL TABOEIRA';
+
+//$vat_requ_cl_cc = 'PT';
+//$vat_requ_cl_vatid = '510900690';
+//$vat_requ_cl_name = 'SolAna Tour Lda.';
+//$vat_requ_cl_street = 'rua 3, lote 6, 2-A, Boavista';
+
+
+$vat_request = new vatLiveCheckApprox($vat_requ_cl_cc, $vat_requ_cl_vatid, $vat_requ_requ_cc, $vat_requ_requ_vatid, $vat_requ_cl_name, $vat_requ_cl_street);
+$vat_requ_res = $vat_request->getResultList();
+$vat_requ_err = $vat_request->getErrorString();
+
+echo '<pre><strong>ABGESENDET mittels SOAP an:</strong><hr />'.$vat_request->requ_url.'</pre>';
+echo '<pre>ANTWORT:<br />'.$vat_requ_res .'</pre>'."\n";
+
+//if($vat_requ_err != '') {
+    echo '<pre>'.$vat_requ_err.'</pre>'."\n";
+//}
+?>
+
+
+
+
+
+
