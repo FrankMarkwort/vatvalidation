@@ -97,6 +97,7 @@ class ResponseSerializableTest extends TestCase
         $this->assertEquals('Uhrzeit', $newClass->getUhrzeit());
         $this->assertEquals('Ustid1', $newClass->getUstid1());
         $this->assertEquals('UstId2', $newClass->getUstId2()); 
+        $this->assertEquals(1, $newClass->getMappedErrorCode()); 
     }  
     
     
