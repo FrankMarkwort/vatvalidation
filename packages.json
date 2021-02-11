@@ -1,8 +1,8 @@
 {
-  "repositories": [ { "type": "composer", "url": "https://github.com/FrankMarkwort/vatvalidation" } ],
-  "require": {
-    "company/package": "7.0",
-    "company/package2": "7.1",
-    "company/package3": "dev-master"
-  }
+	"name": "vatvalidation",
+	"version": "7.3.0",	
+  	"repositories": { 
+  		"type": "git", 
+  		"url": "https://github.com/FrankMarkwort/vatvalidation.git" 
+  	}
 }
