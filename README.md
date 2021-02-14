@@ -6,16 +6,16 @@
  * @copyright Frank Markwort
  * 
  * @example 
- * $query = new QueryCall(new Request(), new Response()); 
- * $query->getRequest()
- *     ->setDruck(false)
- *     ->setFirmenname('Ver d.o.o.')
- *     ->setOrt('Velika Gorica')
- *     ->setPlz('10410')
- *     ->setStrasse('Mate Lovraka 1')
- *     ->setUst1('DE263721827')
- *     ->setUst2('HR20543250589');
+ * $query = new RequestController(new Request(), new Response()); 
+ * $query->getRequest()<br>
+         ->setDruck(false)<br>
+         ->setFirmenname('Ver d.o.o.')<br>
+         ->setOrt('Velika Gorica')<br>
+         ->setPlz('10410')<br>
+         ->setStrasse('Mate Lovraka 1')<br>
+         ->setUst1('DE263721827')<br>
+         ->setUst2('HR20543250589');
  * $response = $query->sendRequestToService()->getResponse();     
- * $response->getErrorCode();
+ * $errorCode = $response->getErrorCode();
  * $response->isValidUstId()
  */

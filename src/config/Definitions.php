@@ -188,7 +188,7 @@ class Definitions
             self::MESSAGGE => 'Die Anfragedaten enthalten nicht alle notwendigen Parameter oder einen ungültigen Datentyp. Weitere Informationen erhalten Sie bei den Hinweisen zum Schnittstelle - Aufruf.'
         ],
         self::ERROR_CODE_SERVICE_NOT_AVAILABLE => [
-            self::MAPPED_CODE => 1,
+            self::MAPPED_CODE => 95,
             self::VALID => null,
             self::MESSAGGE => 'Eine Bearbeitung Ihrer Anfrage ist zurzeit nicht möglich. Bitte versuchen Sie es später noch einmal.'
         ],
