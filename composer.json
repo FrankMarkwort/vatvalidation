@@ -20,7 +20,8 @@
 		}
 	},
 	"require" : {
-		"php" : "^7.2"
+		"php" : "^7.2",
+		"gettext/languages" : "^2.3"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "<8.5.14@stable"
@@ -29,5 +30,8 @@
 		"branch-alias" : {
 			"dev-master" : "7.3"
 		}
-	}
+	},
+	"scripts": {
+        "test": "phpunit"
+    }
 }
