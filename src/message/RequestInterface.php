@@ -14,13 +14,13 @@ interface RequestInterface
 
     public function setUst2(string $value): RequestInterface;
     
-    public function setFirmenname(string $value): RequestInterface;
+    public function setFirmenname(?string $value): RequestInterface;
      
-    public function setOrt(string $value): RequestInterface;
+    public function setOrt(?string $value): RequestInterface;
     
-    public function setPlz(string $value): RequestInterface;
+    public function setPlz(?string $value): RequestInterface;
      
-    public function setStrasse(string $value): RequestInterface;
+    public function setStrasse(?string $value): RequestInterface;
        
     public function setDruck(bool $value): RequestInterface;
     

@@ -44,28 +44,28 @@ class Request implements RequestInterface
         return $this;
     }
 
-    public function setFirmenname(string $value): RequestInterface
+    public function setFirmenname(?string $value): RequestInterface
     {
         $this->firmenname = $value;
         
         return $this;
     }
 
-    public function setOrt(string $value): RequestInterface
+    public function setOrt(?string $value): RequestInterface
     {
         $this->ort = $value;
         
         return $this;
     }
 
-    public function setPlz(string $value): RequestInterface
+    public function setPlz(?string $value): RequestInterface
     {
         $this->plz = $value;
         
         return $this;
     }
 
-    public function setStrasse(string $value): RequestInterface
+    public function setStrasse(?string $value): RequestInterface
     {
         $this->strasse = $value;
         
