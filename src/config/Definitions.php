@@ -187,6 +187,11 @@ class Definitions
             self::VALID => null,
             self::MESSAGGE => 'Die Anfragedaten enthalten nicht alle notwendigen Parameter oder einen ungültigen Datentyp. Weitere Informationen erhalten Sie bei den Hinweisen zum Schnittstelle - Aufruf.'
         ],
+        223 => [
+            self::MAPPED_CODE => 1,
+            self::VALID => true,
+            self::MESSAGGE => 'Die angefragte USt-IdNr. ist gültig. Die Druckfunktion steht nicht mehr zur Verfügung, da der Nachweis gem. UStAE zu § 18e.1 zu führen ist.'
+        ],
         self::ERROR_CODE_SERVICE_NOT_AVAILABLE => [
             self::MAPPED_CODE => 95,
             self::VALID => null,

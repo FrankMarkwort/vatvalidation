@@ -8,16 +8,24 @@
 */
 namespace poseidon\vatvalidation\message;
 
-use \Traversable;
+use \IteratorAggregate;
+use \ArrayIterator;
 
-class ResponseTraversable extends AbstractResponceFacade implements ResponseInterface, Traversable
+class ResponseTraversable extends AbstractResponceFacade implements ResponseInterface, IteratorAggregate
 {
     public function getIterator ()
     {
-        return [
+        return new ArrayIterator([
+            'ErgName' => $this->getErgName(),
+            'ErgOrt' => $this->getErgOrt(),
+            'ErgPlz' => $this->getErgPlz(),
+            'ErgStr' => $this->getErgStr(),
+            'FirmenName' => $this->getFirmenName(),
+            'GueltigAb' => $this->getGueltigAb(),
+            'GueltigBis' => $this->getGueltigBis(),
             'ErrorCode' => $this->getErrorCode(),
             'ErrorMessage' => $this->getErrorMessage(),
             'date' => $this->getDatum()
-        ];
+        ]);
     }
 }
