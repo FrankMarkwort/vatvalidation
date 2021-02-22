@@ -5,17 +5,20 @@
  * @email frank.markwort@gmail.com
  * @copyright Frank Markwort
  * 
- * @example 1 Response
+ * Usesd sevice for German tax numbers 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
+ * Usesd sevice for other tax numbers with adress validation 'https://evatr.bff-online.de/evatrRPC?'
  * 
+ # @example 1 Response
+  
  * Request must implemented poseidon\vatvalidation\message\RequestInterface
  * Response must implemented poseidon\vatvalidation\message\ResponseInterface
- * 
- * use poseidon\vatvalidation\RequestController;
- * use poseidon\vatvalidation\message\Request;
- * use poseidon\vatvalidation\message\Response;
- * 
- * $requestController = new RequestController(new Request(), new Response()); 
- * $requestController->getRequest()<br>
+```
+  use poseidon\vatvalidation\RequestController;
+  use poseidon\vatvalidation\message\Request;
+  use poseidon\vatvalidation\message\Response;
+  
+  $requestController = new RequestController(new Request(), new Response()); 
+  $requestController->getRequest()<br>
          ->setDruck(false)<br>
          ->setFirmenname('Ver d.o.o.')<br>
          ->setOrt('Velika Gorica')<br>
@@ -23,10 +26,10 @@
          ->setStrasse('Mate Lovraka 1')<br>
          ->setUst1('DE263721827')<br>
          ->setUst2('HR20543250589');
- * $response = $requestController->sendRequestToService()->getResponse();     
- * $errorCode = $response->getErrorCode();
- * $response->isValidUstId()
- * 
+  $response = $requestController->sendRequestToService()->getResponse();     
+  $errorCode = $response->getErrorCode();
+  $response->isValidUstId()
+ ```
  * @example 2 ResponseTraversable;
  * 
  * use poseidon\vatvalidation\message\ResponseTraversable;
@@ -48,4 +51,9 @@
  *      do something
  * $responseFromDatabase = (new ResponseSerializable())->unserialize($storeInDatabase);
  * 
+ * Prevalidation request
+ * use poseidon\vatvalidation\validate\VatNumberFormat;
+ * 
+
+
  */
