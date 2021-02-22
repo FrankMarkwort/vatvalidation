@@ -4,15 +4,51 @@
  * @version 7.2.0
  * @email frank.markwort@gmail.com
  * @copyright Frank Markwort
+ * 
 */
+# Configurations
+```php
+namespace poseidon\vatvalidation\config;
 
-Usesd sevice for German tax numbers 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
-Usesd sevice for other tax numbers with adress validation 'https://evatr.bff-online.de/evatrRPC?'
+class Definitions
+{
+  // Mapped Return Codes
+  private static $messages = [
+        self::ERROR_CODE_IS_VALID => [
+            self::MAPPED_CODE => 1,
+            self::VALID => true, 
+            self::MESSAGGE => 'Die angefragte USt-IdNr. ist gültig.'
+        ],       
+        self::ERROR_CODE_IS_NOT_VALID => [
+            self::MAPPED_CODE => 0,
+            self::VALID => false,
+            self::MESSAGGE => 'Die angefragte USt-IdNr. ist ungültig. Die angefragte USt-IdNr.'
+        ],
+        ...
+    ];
+}
+```
+# External Service URL's
+```php
+namespace poseidon\vatvalidation\clients;
+
+class CurlQuery extends AbstractQuery implements QueryInterface
+{
+    protected static $SERVER_URL = 'https://evatr.bff-online.de/evatrRPC?';
+    ....
+}
+
+class SoapQuery extends AbstractQuery implements QueryInterface
+{
+    protected static $SERVER_URL = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
+    ...
+}
+```
+# Interfaces
+**Request must implemented poseidon\vatvalidation\message\RequestInterface
+**Response must implemented poseidon\vatvalidation\message\ResponseInterface
 
 # @example 1 Response
-  
-## Request must implemented poseidon\vatvalidation\message\RequestInterface
-## Response must implemented poseidon\vatvalidation\message\ResponseInterface
 ```php
 use poseidon\vatvalidation\RequestController;
 use poseidon\vatvalidation\message\Request;
@@ -34,6 +70,7 @@ $response->isValidUstId()
 # @example 2 ResponseTraversable;
 ```php
 use poseidon\vatvalidation\message\ResponseTraversable;
+
 $requestController = new RequestController(new Request(), new ResponseTraversable());
     set Request
 $response = $requestController->sendRequestToService()->getResponse(); 
@@ -55,6 +92,7 @@ $responseFromDatabase = (new ResponseSerializable())->unserialize($storeInDataba
 ## Pre-Validation request
 ```php
 use poseidon\vatvalidation\validate\VatNumberFormat;
+
 $request = new Request()
     set Request
 $validator = new VatNumberFormat($request);
