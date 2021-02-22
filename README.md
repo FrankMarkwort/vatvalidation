@@ -26,14 +26,12 @@
  * $response = $requestController->sendRequestToService()->getResponse();     
  * $errorCode = $response->getErrorCode();
  * $response->isValidUstId()
-
+ * 
  * @example 2 ResponseTraversable;
  * 
  * use poseidon\vatvalidation\message\ResponseTraversable;
  * $requestController = new RequestController(new Request(), new ResponseTraversable());
- * 
- * ...
- *  
+ *     set Request
  * $response = $requestController->sendRequestToService()->getResponse(); 
  * foreach ($response as $key => $value) {
  *     do something
@@ -44,13 +42,10 @@
  * use poseidon\vatvalidation\message\ResponseSerializable;
  * 
  * $requestController = new RequestController(new Request(), new ResponseSerializable()); 
- * 
- * ...
- * 
+ *     set Request 
  * $response = $requestController->sendRequestToService()->getResponse(); 
  * $storeInDatabase = $requestController->sendRequestToService()->getResponse()->serialize();
- * ...
- * 
+ *      do something
  * $responseFromDatabase = (new ResponseSerializable())->unserialize($storeInDatabase);
  * 
  */
