@@ -5,7 +5,8 @@
  * @email frank.markwort@gmail.com
  * @copyright Frank Markwort
  * 
- * @example
+ * @example 1 Response
+ * 
  * Request must implemented poseidon\vatvalidation\message\RequestInterface
  * Response must implemented poseidon\vatvalidation\message\ResponseInterface
  * 
@@ -25,4 +26,31 @@
  * $response = $requestController->sendRequestToService()->getResponse();     
  * $errorCode = $response->getErrorCode();
  * $response->isValidUstId()
+
+ * @example 2 ResponseTraversable;
+ * 
+ * use poseidon\vatvalidation\message\ResponseTraversable;
+ * $requestController = new RequestController(new Request(), new ResponseTraversable());
+ * 
+ * ...
+ *  
+ * $response = $requestController->sendRequestToService()->getResponse(); 
+ * foreach ($response as $key => $value) {
+ *     do something
+ * }
+ * 
+ * @example 3 ResponseSerializable
+ * 
+ * use poseidon\vatvalidation\message\ResponseSerializable;
+ * 
+ * $requestController = new RequestController(new Request(), new ResponseSerializable()); 
+ * 
+ * ...
+ * 
+ * $response = $requestController->sendRequestToService()->getResponse(); 
+ * $storeInDatabase = $requestController->sendRequestToService()->getResponse()->serialize();
+ * ...
+ * 
+ * $responseFromDatabase = (new ResponseSerializable())->unserialize($storeInDatabase);
+ * 
  */
