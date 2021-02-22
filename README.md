@@ -45,8 +45,8 @@ class SoapQuery extends AbstractQuery implements QueryInterface
 }
 ```
 # Interfaces
-**Request must implemented poseidon\vatvalidation\message\RequestInterface
-**Response must implemented poseidon\vatvalidation\message\ResponseInterface
+Request must implemented *poseidon\vatvalidation\message\RequestInterface*
+Response must implemented *poseidon\vatvalidation\message\ResponseInterface*
 
 # @example 1 Response
 ```php
