@@ -10,11 +10,17 @@
 	],
 	"license" : "proprietary",
 	"autoload" : {
+		"classmap" : [
+			"src/"
+		],
 		"psr-4" : {
 			"poseidon\\vatvalidation\\" : "src/"
 		}
 	},
 	"autoload-dev" : {
+		"classmap" : [
+			"tests/"
+		],
 		"psr-4" : {
 			"poseidon\\vatvalidation\\" : "tests/"
 		}
